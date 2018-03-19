@@ -1,0 +1,24 @@
+node {
+    try {
+      properties([[$class: 'BuildDiscarderProperty', strategy: [$class: 'LogRotator', artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10']]]);
+
+      stage ('ganache - Build') {
+            timeout(time: 40, unit: 'SECONDS') {
+  
+              stage ('Starting Ganache Block Chain') {
+                    sh """ ganache-cli -p 7545 """ 
+                }
+                
+            currentBuild.result = 'ABORTED'
+            
+            }
+      }
+    } catch (err) {
+        
+          stage (' Closing Ganache Block Chain') {
+            echo "Ganache Blockchain is stoped successfully…"
+            currentBuild.result = 'ABORTED'
+        }
+
+    }
+}
