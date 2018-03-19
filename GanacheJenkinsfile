@@ -3,7 +3,7 @@ node {
       properties([[$class: 'BuildDiscarderProperty', strategy: [$class: 'LogRotator', artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10']]]);
 
       stage ('ganache - Build') {
-            timeout(time: 40, unit: 'SECONDS') {
+            timeout(time: 120, unit: 'SECONDS') {
   
               stage ('Starting Ganache Block Chain') {
                     sh """ ganache-cli -p 7545 """ 
