@@ -9,7 +9,7 @@ node {
                     sh """ ganache-cli -p 7545 """ 
                 }
                 
-            currentBuild.result = 'ABORTED'
+            currentBuild.result = 'SUCCESS'
             
             }
       }
@@ -17,7 +17,7 @@ node {
         
           stage (' Closing Ganache Block Chain') {
             echo "Ganache Blockchain is stoped successfully…"
-            currentBuild.result = 'ABORTED'
+            currentBuild.result = 'SUCCESS'
         }
 
     }
