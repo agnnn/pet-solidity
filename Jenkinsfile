@@ -9,7 +9,7 @@ node {
     }
     
     stage ('Truffle testing using development network') {
-        sh '''sleep 15
+        sh '''sleep 20
             truffle test'''
     }
 }
