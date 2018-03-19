@@ -5,7 +5,7 @@ node {
     }
     
     stage ('Starting Ganache test Blockchain'){
-            build job: 'gc', wait: false
+            build job: 'Ganache test block chain', wait: false
     }
     
     stage ('Truffle testing using development network') {
